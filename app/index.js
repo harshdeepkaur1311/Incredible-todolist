@@ -10,12 +10,21 @@ export default function Index() {
   'Do laundry',
   'Go to gym',
   'Walk dog']);
+
+
+  const addTask = (taskText) => {
+    if (tasks.includes(taskText)) {
+      alert('This Task already exists!');
+      return;
+    }
+    setTasks([...tasks, taskText]);
+  }
   
   return (
     <View >
     
      <ToDoList tasks={tasks}/>
-     <ToDoForm/>
+     <ToDoForm addTask = {addTask}/>
     </View>
   )
 }

@@ -1,4 +1,4 @@
-
+import  {useState} from 'react';
 import React from 'react';
 import {
   SafeAreaView,
@@ -9,15 +9,26 @@ import {
 } from 'react-native';
 
 
-const ToDoForm= ()=> {
+
+
+const ToDoForm= ({addTask})=> {
+  const [taskText, setTaskText] = useState('');
+
+  const HandleAddTask = () => {
+    addTask(taskText);
+    setTaskText('');
+  }
+
   return (
     <SafeAreaView>
       <View style={styles.form}>
         <TextInput
           style={styles.input}
           placeholder="Add a new task..."
+          onChangeText={(text) => setTaskText(text)}
+          value={taskText}
         />
-        <Button title="Add" />
+        <Button title="Add Task" onPress={HandleAddTask}/>
       </View>
     </SafeAreaView>
 );
@@ -36,7 +47,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#ccc',
     paddingHorizontal: 10,
-    paddingVertical: 5,
+    paddingVertical: 7,
     marginRight: 10,
   },
 });

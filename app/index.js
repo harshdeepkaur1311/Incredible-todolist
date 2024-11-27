@@ -1,11 +1,11 @@
-import { StyleSheet, Text, View } from "react-native";
-import ToDoList from "../component/toDoList";
-import ToDoForm from "../component/toDoForm";
+import { StyleSheet,SafeAreaView, Text, View } from "react-native";
+import ToDoList from "./toDoList";
+import ToDoForm from "./toDoForm";
 import { useState } from "react";
 
 
 
-export default function Index() {
+const App = () => {
   const [tasks, setTasks] = useState([
   'Do laundry',
   'Go to gym',
@@ -21,11 +21,12 @@ export default function Index() {
   }
   
   return (
-    <View >
+    <SafeAreaView >
     
      <ToDoList tasks={tasks}/>
      <ToDoForm addTask = {addTask}/>
-    </View>
+    </SafeAreaView>
   )
 }
+export default App;
 

@@ -15,7 +15,12 @@ const ToDoForm= ({addTask})=> {
   const [taskText, setTaskText] = useState('');
 
   const HandleAddTask = () => {
+    if (taskText.length === 0) {
+      alert('Task cannot be empty');
+    }
+    else {
     addTask(taskText);
+    }
     setTaskText('');
   }
 
